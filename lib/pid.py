@@ -1,7 +1,7 @@
 """ PID Controler
 
 	Domeu - Aug 8, 2021 - sourced from https://forum.mchobby.be/viewtopic.php?f=23&t=728
-	Domeu - Aug 8, 2021 - deinit doesn't release the Timer & Callback. Use _active flag instead.
+	Domeu - Aug 8, 2021 - deinit doesn't release the Timer & Callback. Set the temperature to 0 to halt the PID regulation.
 """
 from machine import Timer
 import time
