@@ -49,7 +49,9 @@ Le circuit puissance est raccordé comme suit:
 
 Le circuit de commande de de chauffe et mesure de température est branché comme suit:
 
-TODO IMAGE
+![schéma de controle](docs/_static/control-schematic.jpg)
+
+Ces raccordements sont suffisant pour tester les rampes de températures [test_ramp.py](examples/test_ramp.py) et la régulation PID [test_pid.py](examples/test-pid.py) depuis une ligne de commande REPL.
 
 # Thermocouple
 
