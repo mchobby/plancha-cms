@@ -47,11 +47,25 @@ Le circuit puissance est raccordé comme suit:
 
 ## Circuit de commande
 
-Le circuit de commande de de chauffe et mesure de température est branché comme suit:
+Le circuit de commande de chauffe et mesure de température est branché comme suit:
 
 ![schéma de controle](docs/_static/control-schematic.jpg)
 
 Ces raccordements sont suffisant pour tester les rampes de températures [test_ramp.py](examples/test_ramp.py) et la régulation PID [test_pid.py](examples/test-pid.py) depuis une ligne de commande REPL.
+
+## Circuit de refroidissement
+
+Le circuit de refroidissement est composé de 2 ventilateurs 12V qui ventilent le dessous de la semelle pour la refroidir plus rapidement.
+
+![Ventilation](docs/_static/Plancha-cms-cooling-02.jpg)
+
+![schéma de la ventilation](docs/_static/cooling-schematic.jpg)
+
+Les ventilateurs 12V étant pilotés par un Transistor MosFet (surdimensionné dans ce cas), l'usage d'un Mosfet-Driver (IX4428) a été nécessaire pour permettre le pilotage des ventilateurs depuis un signal 3.3V.
+
+Un régulateur Step-up LM2577 est utilisé pour produire la tension 12V requise par les ventilateurs.
+
+La capacité de 470uF permet de réguler le courant dans le circuit 12V et évite un effet de pompe (marches/arrêts ininterrompu) sur les ventilateurs.  
 
 # Thermocouple
 
