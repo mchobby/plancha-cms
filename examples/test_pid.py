@@ -23,7 +23,7 @@ if uname().sysname == 'rp2': # RaspberryPi Pico
 	heater = Pin(13)
 	print( 'Attaching SPI to SPI(0) : GP5=CSn, GP4=Miso, GP6=Sck, GP7=Mosi')
 	cs = Pin(5, Pin.OUT, value=True ) # SPI CSn
-	spi = SPI(0, baudrate=5000000, polarity=0, phase=0)
+	spi = SPI(0, mosi=Pin.board.GP7, miso=Pin.board.GP4, sck=Pin.board.GP6, baudrate=5000000, polarity=0, phase=0)
 else:
 	raise Exception( 'Oups! plateform %s not supported' % uname().sysname )
 

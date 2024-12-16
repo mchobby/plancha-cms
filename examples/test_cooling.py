@@ -22,11 +22,14 @@ else:
 
 # Setup MAX31855 : thermocouple reader
 tmc = MAX31855( spi=spi, cs_pin= cs )
-
+cooler = Pin( Pin.board.GP19, Pin.OUT, value=False )
+cooler.on()
 
 start = time.time()
 while True:
 	elapsed = time.time() - start # In seconds
 	temp = tmc.temperature()
 	print( elapsed, ",", temp )
+	if temp<50:
+		cooler.off()
 	time.sleep(1)
