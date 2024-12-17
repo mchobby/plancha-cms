@@ -28,6 +28,7 @@ mpremote connect $1 fs cp lib/*.py :lib/
 
 #mpremote connect $1 fs cp main.py :
 mpremote connect $1 fs cp boot.py :
+mpremote connect $1 fs cp main.py :
 
 # Set the MCU datetime
 mpremote connect $1 rtc --set

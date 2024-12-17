@@ -19,14 +19,16 @@ class PID:
 		self.output_min = output_min
 		self.output_max = output_max
 
-		self.error = setpoint - measure_func()
+		self.last_measure = measure_func() # Store last measure for external access
+		self.error = setpoint - self.last_measure
 		self.integral = 0
 
 		self.timer = Timer(-1) # Virtual timer
 		self.timer.init(mode=Timer.PERIODIC, period=dt, callback=self.control)
 
 	def control(self, timer):
-		error = self.setpoint - self.measure_func()
+		self.last_measure = self.measure_func()
+		error = self.setpoint - self.last_measure
 		proportional = self.Kp * error
 		self.integral = self.integral + error * self.dt
 

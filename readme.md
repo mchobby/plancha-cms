@@ -53,6 +53,21 @@ Le circuit de commande de chauffe et mesure de température est branché comme s
 
 Ces raccordements sont suffisant pour tester les rampes de températures [test_ramp.py](examples/test_ramp.py) et la régulation PID [test_pid.py](examples/test-pid.py) depuis une ligne de commande REPL.
 
+Dans un second temps, l'interface Homme-Machine est montée avec un afficheur LCD 16x2 et un encodeur rotatif + click (avec LED RGB).
+
+![schéma de controle](docs/_static/control-schematic-2.jpg)
+
+## Aide au développement
+
+Le circuit de commande est complété par un bouton Reset externe et un switch RUN_APP. Des fonctionnalités presque indispensables durant une phase de développement.
+
+Le switch placé sur la position STOP permettra d'arrêter le programme --ou-- d'empêcher celui-ci de démarrer après un Reset.
+
+Le Reset externe permettra de redémarrer rapidement le Pico (Note: le fichier boot.py doit impérativement désactiver le relai SSR pour désactiver une éventuelle chauffe).
+
+Voici le raccordement des deux éléments:
+![schéma de controle](docs/_static/control-schematic-3.jpg)
+
 ## Circuit de refroidissement
 
 Le circuit de refroidissement est composé de 2 ventilateurs 12V qui ventilent le dessous de la semelle pour la refroidir plus rapidement.
